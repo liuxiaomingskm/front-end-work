@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>九九乘法表</title>
+	<style type="text/css">
+		table{
+			width:600px;
+			border-collapse: collapse;
+
+		}
+		table th{
+			border:#CC0000 1px solid;
+
+		}
+	</style>
+
+</head>
+
+<body>
+<script type="text/javascript">
+	//用表格形式显示乘法表
+	document.write("<table>");
+	for (var x = 1; x <= 9; x++)
+	{ document.write("<tr>");
+		for (var y = 1; y <=x; y++)
+		{
+			document.write("<th>" + y + "*" + x + "="+y*x + "</th>");
+		}
+		document.write("</tr>");
+
+	}
+	document.write("</table>");
+
+
+</script>
+</body>
+</html>
