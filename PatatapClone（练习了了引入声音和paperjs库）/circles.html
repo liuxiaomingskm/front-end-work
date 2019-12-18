@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Circles</title>
+    <script type="text/javascript" src="paper-full.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.2/howler.js"></script>
+    <link rel="stylesheet" type="text/css" href="circles.css">
+
+    <script type="text/paperscript" canvas="myCanvas">
+        var keyData = {
+            a:{
+            color:"purple",
+            sound:new Howl({
+            src: ['sounds/bubbles.mp3']
+                })},
+            s:{
+                color:"green",
+                sound:new Howl({
+                    src: ['sounds/clay.mp3']
+                })},
+            d:{
+                color:"yellow",
+                sound:new Howl({
+                    src: ['sounds/confetti.mp3']
+                })},
+            f:{
+                color:"purple",
+                sound:new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })},
+            g:{
+                color:"green",
+                sound:new Howl({
+                    src: ['sounds/clay.mp3']
+                })},
+            h:{
+                color:"yellow",
+                sound:new Howl({
+                    src: ['sounds/confetti.mp3']
+                })},
+            j:{
+                color:"purple",
+                sound:new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })},
+            k:{
+                color:"green",
+                sound:new Howl({
+                    src: ['sounds/clay.mp3']
+                })},
+            l:{
+                color:"yellow",
+                sound:new Howl({
+                    src: ['sounds/confetti.mp3']
+                })},
+            z:{
+                color:"purple",
+                sound:new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })},
+            x:{
+                color:"green",
+                sound:new Howl({
+                    src: ['sounds/clay.mp3']
+                })},
+            c:{
+                color:"yellow",
+                sound:new Howl({
+                    src: ['sounds/confetti.mp3']
+                })},
+            v:{
+                color:"purple",
+                sound:new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })},
+            b:{
+                color:"green",
+                sound:new Howl({
+                    src: ['sounds/clay.mp3']
+                })},
+            n:{
+                color:"yellow",
+                sound:new Howl({
+                    src: ['sounds/confetti.mp3']
+                })},
+            m:{
+                color:"purple",
+                sound:new Howl({
+                    src: ['sounds/bubbles.mp3']
+                })},
+            q:{
+                color:"green",
+                sound:new Howl({
+                    src: ['sounds/clay.mp3']
+                })},
+            w:{
+                color:"yellow",
+                sound:new Howl({
+                    src: ['sounds/confetti.mp3']
+                })}
+        }
+
+        var circles = [];
+
+        function onKeyDown(event) {
+
+            if(keyData[event.key]){
+                var maxPoint = new Point(view.size.width, view.size.height);
+                var randomPoint = Point.random();
+                var point = maxPoint * randomPoint;
+                var circle = new Path.Circle(point, 500);
+
+                circle.fillColor = keyData[event.key].color;
+                keyData[event.key].sound.play();
+                circles.push(circle) ;
+
+
+            }
+
+
+
+
+
+            }
+
+
+        function onFrame(event) {
+            for (var i = 0; i <circles.length; i++){
+
+                circles[i].fillColor.hue += 1;
+                circles[i].scale(0.9);
+                // remove circle less than 1
+                if (circles[i].area < 1){
+                    circles[i].remove();
+                    circles.splice(i,1);
+                    console.log(circles);
+                }
+            }
+
+        }
+
+
+    </script>
+</head>
+<body>
+<canvas id="myCanvas" resize></canvas>
+</body>
+</html>
