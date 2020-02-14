@@ -1,0 +1,35 @@
+svg {
+  margin: 0 auto;
+  display: block;
+}
+
+.tick line {
+  stroke: #ccc;
+  stroke-dasharray: 10, 5;
+}
+.tooltip {
+  opacity: 0;
+  position: absolute;
+  pointer-events:none; /*当鼠标点到圆点时，跳出提示信息，一旦跳出提示信息，因为光标点在提示信息上，所以
+  就自动触发mouseout事件，tooltip就变成透明，光标又回到圆点上，如此循环往复，所以必须设置pointer-event为none */
+  background-color: lightblue;
+  border:8px solid blue;
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.tooltip p{
+  margin: 0;
+}
+
+/* 方法是在tooltip div的方框上创建一个只有border的空文本框，把上左右边
+设为透明，下边设置为蓝色 从而形成一个蓝色三角形 */
+.tooltip:before {
+  content:'';
+  position: absolute;
+  border:12px solid transparent;
+  border-bottom-color: blue;
+  top: -30px;
+  left: 50%;
+  margin-left: -6px;
+}

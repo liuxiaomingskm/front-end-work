@@ -1,7 +1,7 @@
 var minYear = d3.min(birthData, d => d.year);
 var maxYear = d3.max(birthData, d => d.year);
 var width = 600;
-var height = 600;
+var height = 700;
 
 
 var continents = [];
@@ -20,9 +20,17 @@ d3.select('svg')
     .attr("width", width)
     .attr("height", height)
     .append("g")
-    .attr("transform", "translate(" + width / 2 + ',' + height / 2 + ')') // 因为pie chartd默认以组为单位，并且
+    .attr("transform", "translate(" + width / 2 + ',' + 330 + ')') // 因为pie chartd默认以组为单位，并且
     //饼图的圆心默认是组的左上顶点也就是svg的左上点，所以需要修改位置
     .classed('chart', true);
+
+d3.select("svg")
+    .append("text")
+    .classed("title", true)
+    .attr("x", width / 2)
+    .attr("y", 30)
+    .style("font-size", "1.5em")
+    .style("text-anchor", "middle");
 
 d3.select('input')
         .property('min', minYear)
@@ -75,6 +83,9 @@ var update = d3.select('.chart')//很奇怪 chart类和arc类都不存在不报�
         .attr('fill', d => colorScale(d.data.continent)) // 这里的d是arcs的元素， arc自带data对象存储原来的所有数据
         .attr('stroke', 'black')
         .attr('d', path);
+
+d3.select(".title")
+    .text("Births Distribution in Various Regions in " + year);
 
 }
 
