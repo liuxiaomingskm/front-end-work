@@ -11,14 +11,14 @@ d3.queue()
               continent: row.Continent,
               country: row.Country,
               countryCode: row["Country Code"],
-              emissions: +row["Emissions"],
+              emissions: +row.Emissions,
               emissionsPerCapita: + row["Emissions Per Capita"],
               region: row.Region,
               year: + row.Year
             }
   })
   .await(function(error, mapData, data){
-    console.log("mapData", mapData);
+    console.log("data",data[0].continent);
     if (error) throw error;
 
     var extremeYears = d3.extent(data, d => d.year);
