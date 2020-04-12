@@ -17,7 +17,7 @@ class App extends Component {
 constructor(props){
   super(props);
   // 下面之所以要以this作为第二个参数，不同对象调用this.getRandomColor 会改变this指引的对象，所以需要绑定this = App Component
-  // Fill(): fill all the array elements with a static value
+  // Fill(): fill all the array elements with a static value , 此处getRandomColor是一个没有参数的函数，可以作为map的参数
   const boxes = Array(NUM_BOXES).fill().map(this.getRandomColor, this);
   this.state = {boxes}; //对象缩写
   
