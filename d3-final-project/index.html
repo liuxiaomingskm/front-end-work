@@ -8,20 +8,25 @@
 </head>
 <body>
   <div id="nav">
-    <h2>CO<sub>2</sub> Dashboard</h2>
+    <h2>Global COVID-19 Dashboard</h2>
     <p>
-      Explore CO<sub>2</sub> emissions by year. 
-      Current year: <span id="year-val"></span>
-      <input id="year" type="range" step="1">
+      Explore data by date. 
+      Current date: <span id="date-val"></span>
+      <input id="date" type="date" value=2020-01-22>
     </p>
+    <p>The date scope is from 2020-1-22 to 2020-4-18</p>
     <p>
-      Choose between total emissions or emissions per capita.
-      <input type="radio" name="data-type" value="emissions" checked>
-      <label>Emissions</label>
-      <input type="radio" name="data-type" value="emissionsPerCapita">
-      <label>Emissions Per Capita</label>
+      Choose between different statistic standards.
+      <input type="radio" name="data-type" value="confirmed" checked>
+      <label>Confirmed</label>
+      <input type="radio" name="data-type" value="suspected">
+      <label>Suspected</label>
+      <input type="radio" name="data-type" value="death">
+      <label>Death</label>
+      <input type="radio" name="data-type" value="recovered">
+      <label>Recovered</label>
     </p>
-    <p>Click on a country to see its trends by year.</p>
+    <p>Click on a country to see its daily trend.</p>
   </div>
   <section class="container">
     <div class="chart-container">

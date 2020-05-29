@@ -81,6 +81,7 @@ body {
 .country.active {
   stroke: #2c3e50;
   stroke-width: 2px;
+
 }
 
 .y-axis-label {
@@ -89,4 +90,5 @@ body {
 
 .tick text {
   font-size: 1.5em;
+
 }
